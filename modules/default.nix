@@ -11,13 +11,14 @@ with lib;
 let
 
   modules = [
-    ./home-environment.nix
     ./files.nix
+    ./home-environment.nix
     ./manual.nix
     ./misc/fontconfig.nix
     ./misc/gtk.nix
     ./misc/news.nix
     ./misc/pam.nix
+    ./misc/xdg.nix
     ./programs/bash.nix
     ./programs/beets.nix
     ./programs/browserpass.nix
