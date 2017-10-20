@@ -11,12 +11,13 @@ with lib;
 let
 
   modules = [
-    ./home-environment.nix
     ./files.nix
+    ./home-environment.nix
     ./manual.nix
     ./misc/fontconfig.nix
     ./misc/gtk.nix
     ./misc/news.nix
+    ./misc/nixpkgs.nix
     ./misc/pam.nix
     ./programs/bash.nix
     ./programs/beets.nix
@@ -73,7 +74,7 @@ let
       fold f res res.config.warnings;
 
   pkgsModule = {
-    config._module.args.pkgs = lib.mkForce pkgs;
+    config._module.args.pkgs = lib.mkDefault pkgs;
     config._module.args.baseModules = modules;
     config._module.check = check;
   };
