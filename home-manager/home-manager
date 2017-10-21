@@ -43,9 +43,9 @@ function setConfigFile() {
 function setHomeManagerModulesPath() {
     local modulesPath
     for modulesPath in "@MODULES_PATH@" \
-                       "$HOME/.config/nixpkgs/home-manager/modules" \
-                       "$HOME/.nixpkgs/home-manager/modules" ; do
-        if [[ -e "$modulesPath" ]] ; then
+                       "$HOME/.config/nixpkgs/home-manager" \
+                       "$HOME/.nixpkgs/home-manager" ; do
+        if [[ -e "$modulesPath" || "$modulesPath" =~ ^https?:// ]] ; then
             export NIX_PATH="$NIX_PATH${NIX_PATH:+:}home-manager=$modulesPath"
             return
         fi
